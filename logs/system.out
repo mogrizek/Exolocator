@@ -1,0 +1,8 @@
+Listening for transport dt_socket at address: 8000
+12:50:27,840 INFO  ~ Starting /home/marioot/Eclipse/WebDev/Exolocator
+12:50:28,464 WARN  ~ You're running Play! in DEV mode
+12:50:28,569 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+12:50:36,871 INFO  ~ Connected to jdbc:mysql://localhost/exolocator_db
+12:50:37,698 INFO  ~ Application 'exolocator' is now started !
+USAO!
+USAO!

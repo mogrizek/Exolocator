@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{if exons.size()}
+	<div class="all-exons">
+		<h2>Exons for ${exons[0].species}</h2>
+		<h3 class="exon-title">
+			Ortholog id: ${exons[0].ensembl_id}
+		</h3>
+		#{list items:exons, as:'exon_item'}
+			#{display_exon exon:exon_item /}
+		#{/list}
+#{/if}
+#{else}
+	<div class="empty">
+		There are no exons here. =(
+	</div>
+#{/else}

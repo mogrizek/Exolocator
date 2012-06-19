@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h2>Search the protein</h2>
+
+#{form @Application.basicSearch()}
+    <p>
+        <label for="ensembl_id">Ensembl id: </label>
+        <input type="text" name="ensembl_id" id="ensembl_id" value="${params.ensembl_id}"/>
+    </p>
+    <p>
+        <label for="species">Species: </label>
+        <select name="species" id="species" value="${params.species}"/>
+    </p>
+    <p>
+        <input type="submit" value="Search for exons" />
+    </p>
+#{/form}
+
+<script type="text/javascript">
+$(document).ready(function() {
+	change_species_select();
+	
+	$("input[id='ensembl_id']").change(function(){
+		change_species_select()
+	});
+});
+
+var change_species_select = function() {
+		$("select[id='species']: option").remove();
+		var ensembl_id = $("input[id='ensembl_id']").val();
+
+		var speciesList = #{jsAction @Application.getSpeciesForProtein(':ensemblID') /}
+
+        $.getJSON(speciesList({ensemblID: ensembl_id}), function(species) {
+        	if (species.length > 1){
+        		$("select[id='species']").append(new Option("all", "all"));
+        	}
+        	$.each(species, function(i){
+        		$("select[id='species']").append(new Option(species[i], species[i]));
+        	})
+        	if (species.length === 0 && ensembl_id != "") {
+        		alert("No available species!");
+        	}
+        });
+}
+</script>

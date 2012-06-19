@@ -1,0 +1,6 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{list items:species_exons, as:'exons_item'}
+	#{display_species_exons exons:exons_item /}
+#{/list}
