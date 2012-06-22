@@ -15,5 +15,7 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.playframework.playclipse.playNature</nature>
 	</natures>
-	
+	<linkedResources><link><name>table-1.2.2</name><type>2</type><location>/opt/play-1.2/play-1.2.4/modules/table-1.2.2/app</location></link>
+<link><name>conf/table-1.2.2</name><type>2</type><location>/opt/play-1.2/play-1.2.4/modules/table-1.2.2/conf</location></link>
+</linkedResources>
 </projectDescription>

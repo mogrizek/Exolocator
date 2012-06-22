@@ -9,7 +9,9 @@ import play.db.jpa.*;
 @Entity
 @Table(name="ortholog")
 public class Ortholog extends Model{
-	public String ensembl_id;
+	public String ref_protein_id;
 	public String species;
-	public String target_ensembl_id;
+	public String protein_id;
+	public String transcript_id;
+	public String gene_id;
 }

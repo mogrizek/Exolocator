@@ -1,0 +1,40 @@
+body,
+html {
+margin:0;
+padding:0;
+color:#000;
+background:#a7a09a;
+}
+
+
+#wrap {
+width:750px;
+height:800px;
+margin:0 auto;
+background:#99c;
+}
+#header {
+background:#ddd;
+}
+#main {
+float:left;
+width:50%;
+height:100%;
+background:#9c9;
+}
+#sidebar1 {
+float:right;
+width:50%;
+height:50%;
+background:#c9c;
+}
+#sidebar2 {
+float:right;
+width:50%;
+height:50%;
+background:#d9c;
+}
+#footer {
+clear:both;
+background:#cc9;
+}

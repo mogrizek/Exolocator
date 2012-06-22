@@ -1,0 +1,37 @@
+
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>
+Embedded viewing of Alignments
+</title>
+<body>
+<h1>Embedded viewing of Alignments</h1>
+<p>The alignment below was generated from the following files:
+<ul>
+	<li><a href="@{'/lib/plantfdx.fa'}">plantfdx.fa</a> - Alignment file in
+	FASTA format</li>
+	<li><a href="@{'/lib/plantfdx.features'}">plantfdx.features</a> - Jalview
+	Format Sequence Features file</li>
+	<li><a href="@{'/lib/plantfdx.annotations'}">plantfdx.annotations</a> -
+	Jalview Alignment Annotations File</li>
+	
+</ul>
+<applet code="jalview.bin.JalviewLite"
+			width="1000" height="400" archive="@{'/lib/jalviewApplet.jar'}">
+			<param name="file" value="@{'/lib/Bos_taurus.fa'}">
+			<param name="defaultColour" value="Clustal">
+			
+			<param name="embedded" value="true">
+			<param name="showFullId" value="true">
+			<param name="showConservation" value="false">
+			<param name="showQuality" value="false">
+			<param name="showConsensus" value="false">
+			<param name="showFeatureSettings" value="false">
+			<param name="heightScale" value="2.0">
+			
+			<param name="APPLICATION_URL"
+				value="http://www.jalview.org/services/launchApp">
+		</applet>
+</p>
+</body>
+</html>

@@ -1,0 +1,110 @@
+#{extends 'query_page_layout.html' /}
+#{set title:'Home' /}
+
+#{set 'description'}
+	<h3>What is this?</h3>	
+	<p>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
+	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
+	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
+	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
+	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
+	Pellentesque ullamcorper tempus tempor.
+
+	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
+	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
+	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
+	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
+	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
+	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
+	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
+	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
+	Pellentesque ullamcorper tempus tempor.
+
+	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
+	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
+	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
+	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
+	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
+	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
+	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
+	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
+	Pellentesque ullamcorper tempus tempor.
+
+	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
+	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
+	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
+	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
+	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
+	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
+	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
+	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
+	Pellentesque ullamcorper tempus tempor.
+
+	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
+	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
+	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
+	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
+	</p>
+#{/set}
+
+#{set 'species_search'}
+	</br>
+	<h2>Species Specific Search</h2>
+#{/set}
+
+#{set 'human_homolog_search'}
+	</br>
+	<h2>Human Protein Putative Homogue Search</h2>
+	</br>
+	#{form @Application.humanHomologSearchForm()}
+    <table>
+		<tr>
+			<td><label for="ref_protein_id">Ensembl id: </label></td>
+			<td><input type="text" name="ref_protein_id" id="ref_protein_id" value="${params.ref_protein_id}"/></td>
+		</tr>
+		<tr>
+			<td><label for="species">Species: </label></td>
+			<td><select name="species" id="species" value="${params.species}"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" id="search" value="Search for exons" /></td>
+		</tr>
+	</table>
+	#{/form}	
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			change_species_select();
+			
+			$("input[id='ref_protein_id']").change(function(){
+				change_species_select()
+			});
+		});
+		
+		var change_species_select = function() {
+				$("select[id='species']: option").remove();
+				var ref_protein_id = $("input[id='ref_protein_id']").val();
+		
+				var speciesList = #{jsAction @Application.getSpeciesForProtein(':ensemblID') /}
+		
+		        $.getJSON(speciesList({ensemblID: ref_protein_id}), function(species) {
+		        	if (species.length > 1){
+		        		$("select[id='species']").append(new Option("all", "all"));
+		        	}
+		        	$.each(species, function(i){
+		        		$("select[id='species']").append(new Option(species[i], species[i]));
+		        	})
+		        	if (species.length === 0 && ref_protein_id != "") {
+	        		alert("No available species!");
+	        	}
+	        });
+		}
+	</script>
+#{/set}

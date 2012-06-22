@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
+    <head>   
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/style.css'}">
         #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.ico'}">
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
     </head>
     <body>
-        <div id="header">
-		    <div id="logo">
-		        ExoLocator
-		    </div>
-		    <ul id="tools">
-		        <li>
-		            <a href="@{Application.index()}">Home</a>
-		        </li>
-		    </ul>
-		    <div id="title">
-		        <span class="about">About this program...</span>
-		        <h1><a href="@{Application.index()}">${applicationTitle}</a></h1>
-		    </div>
+        <div class="container">
+	        <div class="header">
+				<div id="logo1"><a href="@{Application.index()}"><img src="/public/images/exo_banner_left.png" width="515" height="115" style="background: #8090AB; display:block;"/></a></div>
+				<div id="logo2"><img src="/public/images/exo_banner_right.png" width="199" height="115" style="background: #8090AB; display:block;"/></div>
+				<br class="clearfloat" />
+			</div>
+			<div class="menu">
+				<div id="main-menu">
+					<ul>
+						<li><a href="@{Application.index()}">HOME</a></li>
+						<li><a href="@{Application.help()}">HELP</a></li>
+						<li><a href="">ABOUT</a></li>
+						<li><a href="">CONTACT</a></li>
+					</ul>
+				</div>
+			</div>
+				#{doLayout /}
+			<div id="footer">
+				BII research project
+			</div>
 		</div>
-		
-		<div id="main">
-		    #{doLayout /} 
-		</div>
-		
-		<br/>
-		<br/>
-		<br/>
-		<p id="footer">
-		    BII research project
-		</p>
     </body>
 </html>

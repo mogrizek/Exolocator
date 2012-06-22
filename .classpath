@@ -2,9 +2,11 @@
 <classpath>
 	<classpathentry excluding="views/**" kind="src" path="app"/>
 	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="table-1.2.2"/>
 	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/opt/play-1.2/play-1.2.4/framework/play-1.2.4.jar" sourcepath="/opt/play-1.2/play-1.2.4/framework/src" />
+	<classpathentry kind="lib" path="/home/marioot/Eclipse/WebDev/Exolocator/lib/jalviewApplet.jar"/>
 	<classpathentry kind="lib" path="/opt/play-1.2/play-1.2.4/framework/lib/memcached-2.6.jar"/>
 	<classpathentry kind="lib" path="/opt/play-1.2/play-1.2.4/framework/lib/ehcache-core-2.0.0.jar"/>
 	<classpathentry kind="lib" path="/opt/play-1.2/play-1.2.4/framework/lib/netty-3.2.5.Final.jar"/>
