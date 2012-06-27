@@ -39,11 +39,11 @@ public class Application extends Controller {
     	List<Ortholog> orthologs = Ortholog.find("byProtein_id", protein_id).fetch();
     	//TODO: if there is more then one ortholog, question of choice?
     	Ortholog ortholog = orthologs.get(0);
-    	List<Exon> exons = Exon.find("byRef_protein_idAndSpeciesAndSource", ortholog.ref_protein_id, ortholog.species, "blastn").fetch();
-    	
+    	List<Exon> exons = Exon.find("byRef_protein_idAndSpeciesAndSource", ortholog.ref_protein_id, ortholog.species, "sw_gene").fetch();
+    	String species = ortholog.species;
     	//input file for jalview
     	String jalview_input_f = jalviewInputFileGenerator(ortholog.ref_protein_id, ortholog.species); 
-    	render(exons, jalview_input_f);
+    	render(exons, species, jalview_input_f);
     }
     
     public static void humanHomologSearchForm(
