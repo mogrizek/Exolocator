@@ -1,0 +1,69 @@
+#{extends 'single_species_results_layout.html' /}
+#{set title:'Home' /}
+
+#{set 'species_info'}
+	<h2>This is species info</h2>
+#{/set}
+#{set 'table_content'}
+<h2>Exons found</h2>
+<div class="scrollableContainer">
+  <div class="scrollingArea">
+   <table class="cruises scrollable">
+    <thead>
+
+    <tr>
+    	<th><div class="ordinal">Ordinal</div></th>
+    	<th><div class="start">Start</div></th>
+    	<th><div class="stop">Stop</div></th>
+    	<th><div class="source">Source</div></th>
+    	<th><div class="nucleotide_download">Nucleotide Sequence</div></th>
+    	<th><div class="amino_acid_download">Aminoacid Sequence</div></th>
+    </tr>
+    </thead>
+		#{list items:exons, as:'exons_item'}
+		  	<tr> 
+		  		<td><div class="ordinal">${exons_item.ref_ordinal}</div></td>
+		  		<td><div class="start">${exons_item.start}</div></td>
+    			<td><div class="stop">${exons_item.stop}</div></td>
+    			<td><div class="source">${exons_item.source}</div></td>
+    			<td><div class="nucleotide_download"><a href="@{download_exon(exons_item.ensembl_id, "N")}">FASTA</a></div></td>
+    			<td><div class="amino_acid_download"><a href="@{download_exon(exons_item.ensembl_id, "A")}">FASTA</a></div></td>
+		   	</tr> 
+		 #{/list} 
+	</table> 
+		
+      </tbody>
+   </table>
+ </div>
+</div>  
+
+   <script type="text/javascript">
+   	var showUserAction = #{jsAction @Application.jalviewInputFileCleanup() /};
+     $(document).ready(function(){
+     	setTimeout(function() {$.getJSON(showUserAction());},5000);
+     });
+   </script>
+#{/set}
+
+#{set 'jalview'}
+TODO: AUTOMATIC RESIZING!!!
+	</br>
+	<h2>JalView</h2>
+	<div class="jalview">
+		<p>
+			<applet code="jalview.bin.JalviewLite"
+				width="1220" height="300" archive="@{'/lib/jalviewApplet.jar'}">
+				<param name="file" value="${jalview_input_f}">
+				<param name="defaultColour" value="Zappo">
+				<param name="embedded" value="true">
+				<param name="showFullId" value="true">
+				<param name="showConservation" value="false">
+				<param name="showQuality" value="false">
+				<param name="showConsensus" value="false">
+				<param name="showFeatureSettings" value="false">
+				<param name="heightScale" value="2.0">
+				<param name="RGB" value="EAEAEA">
+			</applet>
+		</p>
+	</div>
+#{/set}

@@ -71,6 +71,7 @@ height:50%;
 float:right;
 width:60%;
 height:50%;
+text-align: right;
 }
 .sidebar2 {
 border-top: 1px solid #45597A;
@@ -104,6 +105,17 @@ border-top: 1px solid #45597A;
 height:50%;
 }
 
+/* ~~ Human Homologs Results page ~~ */
+.ortholog_list_box {
+float:left;
+width:90%;
+height:auto;
+}
+.jalview_box {
+clear:both;
+border-top: 1px solid #45597A;
+height:50%;
+}
 
 /* ~~ Table ~~ */
 table {
@@ -279,7 +291,7 @@ table.cruises tr:last-child td:last-child {
 
   
   div.scrollableContainer { 
-    float:right;
+    float:left;
     margin:0 auto 0 auto;
     position: relative; 
     width: 700px;
@@ -291,7 +303,7 @@ table.cruises tr:last-child td:last-child {
   div.scrollingArea { 
     overflow: scroll; 
     height: 100%;
-    width: 600px;
+    width: auto;
     border-left: none;
     border-top: none;
     /*background: blue;*/
@@ -305,11 +317,12 @@ table.cruises tr:last-child td:last-child {
     /*background: green;*/
     }
 
-  table.cruises .start     { width: 108px; }
-  table.cruises .stop { width: 126px; }
-  table.cruises .source    { width: 76px; }
-  table.cruises .nucleotide_download  { width: 60px; text-align:center; }
-  table.cruises .amino_acid_download   { width: 160px; text-align:center;}
+  table.cruises .ordinal     { width: 50px; }
+  table.cruises .start     { width: 75px; }
+  table.cruises .stop { width: 75px; }
+  table.cruises .source    { width: 50px; }
+  table.cruises .nucleotide_download  { width: 154px; text-align:center; }
+  table.cruises .amino_acid_download   { width: 154px; text-align:center;}
 
 
 

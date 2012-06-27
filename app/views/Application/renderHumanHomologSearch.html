@@ -1,42 +1,20 @@
-#{extends 'single_species_results_layout.html' /}
+#{extends 'human_homolog_results_layout.html' /}
 #{set title:'Home' /}
 
-#{set 'species_info'}
-	<h2>This is species info</h2>
-#{/set}
-#{set 'table_content'}
-<h2>Exons found</h2>
-<div class="scrollableContainer">
-  <div class="scrollingArea">
-   <table class="cruises scrollable">
-    <thead>
-
-    <tr>
-    	<th><div class="start">Start</div></th>
-    	<th><div class="stop">Stop</div></th>
-    	<th><div class="source">Source</div></th>
-    	<th><div class="nucleotide_download">Sequence</div></th>
-    	<th><div class="amino_acid_download">Sequence</div></th>
-    </tr>
-    </thead>
-		#{list items:exons, as:'exons_item'}
-		
-		  	<tr> 
-		  		<td><div class="start">${exons_item.start}</div></td>
-    			<td><div class="stop">${exons_item.stop}</div></td>
-    			<td><div class="source">${exons_item.source}</div></td>
-    			<td><div class="nucleotide_download"><a href="@{download_exon(exons_item.ensembl_id, "N")}">FASTA</a></div></td>
-    			<td><div class="amino_acid_download"><a href="@{download_exon(exons_item.ensembl_id, "A")}">FASTA</a></div></td>
-		   	</tr> 
-		 #{/list} 
-		
-	
-	</table> 
-		
-      </tbody>
-   </table>
- </div>
+#{set 'ortholog_list_content'}
+<h2>Orthologs</h2>
+<div class="ortholog_list">
+  #{list items:orthologs, as:'ortholog_item'}
+  		<h4><a href="@{Application.singleSpeciesSearchForm(ortholog_item.protein_id)}">${ortholog_item.species}</a></h4>
+  #{/list} 
 </div>  
+
+   <script type="text/javascript">
+   	var showUserAction = #{jsAction @Application.jalviewInputFileCleanup() /};
+     $(document).ready(function(){
+     	setTimeout(function() {$.getJSON(showUserAction());},5000);
+     });
+   </script>
 #{/set}
 
 #{set 'jalview'}

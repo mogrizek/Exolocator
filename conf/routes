@@ -5,6 +5,8 @@
 # Home page
 GET     /                                       Application.index
 GET		/application/getspeciesforprotein		Application.getSpeciesForProtein
+GET		/application/jalviewInputFileCleanup	Application.jalviewInputFileCleanup
+GET		/application/jalviewInputFileGenerator	Application.jalviewInputFileGenerator
 GET		/help									Application.help
 
 # Ignore favicon requests

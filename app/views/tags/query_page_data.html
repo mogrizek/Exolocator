@@ -56,6 +56,19 @@
 #{set 'species_search'}
 	</br>
 	<h2>Species Specific Search</h2>
+	</br>
+	#{form @Application.singleSpeciesSearchForm()}
+    <table>
+		<tr>
+			<td><label for="protein_id">Ensembl id: </label></td>
+			<td><input type="text" name="protein_id" id="protein_id" value="${params.protein_id}"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" id="search" value="Search for exons" /></td>
+		</tr>
+	</table>
+	#{/form}	
 #{/set}
 
 #{set 'human_homolog_search'}
