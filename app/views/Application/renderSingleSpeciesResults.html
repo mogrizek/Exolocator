@@ -26,8 +26,8 @@
 		  		<td><div class="start">${exons_item.start}</div></td>
     			<td><div class="stop">${exons_item.stop}</div></td>
     			<td><div class="source">${exons_item.source}</div></td>
-    			<td><div class="nucleotide_download"><a href="@{download_exon(exons_item.ensembl_id, "N")}">FASTA</a></div></td>
-    			<td><div class="amino_acid_download"><a href="@{download_exon(exons_item.ensembl_id, "A")}">FASTA</a></div></td>
+    			<td><div class="nucleotide_download"><a href="@{download_exon(exons_item.ensembl_id, species, "N")}">FASTA</a></div></td>
+    			<td><div class="amino_acid_download"><a href="@{download_exon(exons_item.ensembl_id, species, "A")}">FASTA</a></div></td>
 		   	</tr> 
 		 #{/list} 
 	</table> 
@@ -38,7 +38,7 @@
 </div>  
 
    <script type="text/javascript">
-   	var showUserAction = #{jsAction @Application.jalviewInputFileCleanup() /};
+   	var showUserAction = #{jsAction @Application.jalviewInputFileCleanup(jalview_input_f) /};
      $(document).ready(function(){
      	setTimeout(function() {$.getJSON(showUserAction());},5000);
      });

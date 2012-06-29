@@ -16,6 +16,7 @@ GET     /favicon.ico                            404
 GET     /public/                                staticDir:public
 GET     /lib/                                   staticDir:lib
 GET     /Resource/                              staticDir:Resource
+GET     /Best_MSA/                              staticDir:Best_MSA
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

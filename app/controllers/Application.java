@@ -10,6 +10,7 @@ import java.io.Console;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 import models.*;
@@ -59,9 +60,8 @@ public class Application extends Controller {
 		} else {
     		orthologs = Ortholog.find("byRef_protein_idAndSpecies", ref_protein_id, species).fetch();
 		}
-    	
     	//input file for jalview
-    	String jalview_input_f = "/Resource/Ailuropoda_melanoleuca.afa";    	
+    	String jalview_input_f = String.format("/Best_MSA/%s.afa", ref_protein_id);    	
     	render(orthologs, jalview_input_f);
     }
     
@@ -95,28 +95,60 @@ public class Application extends Controller {
     	return species_with_orthologs;
     }
 
-    public static void download_exon(String ensembl_id, String download_type){    	
-    	System.out.println("DOWNLOAD!");
-    	System.out.println(ensembl_id);
-    		
+    public static void download_exon(String ensembl_id, String species, String download_type){    	
+    	/*
+    	 * Method invoked when downloading a FASTA file.
+    	 */
     	FileInputStream inputStream = null;
-    	String file_name = ensembl_id;
-        try{
-            //create temp file
-            File tempFile = File.createTempFile( file_name, ".fa" );
-            
-            BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));
-    	    //Write Contents
-            bw.write("This is the temporary file content");
-    	    bw.close();
-            
-            inputStream = new FileInputStream( tempFile );
+        try{           
+        	if (download_type.equals("N")) {
+        		//Get contents
+                List<Exon> exons = Exon.find("bySourceAndEnsembl_idAndSpecies", "sw_gene", ensembl_id, species).fetch();
+                String file_name = String.format("%s_%s_%s", ensembl_id, species, download_type);
 
-            //delete temp file
-            tempFile.delete();
+                //create temp file
+                File tempFile = File.createTempFile( file_name, ".fa" );
+                
+                BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));
+                
+        	    //Write Contents
+                bw.write(String.format(">sw_gene_%s_%s\n", exons.get(0).start, exons.get(0).start));
+                bw.write(exons.get(0).sequence);
+        	    bw.close();
+                
+                inputStream = new FileInputStream( tempFile );
 
-            //download the file as held in the inputstream
-            //renderBinary( inputStream, file_name + ".fa" );
+                //delete temp file
+                tempFile.delete();
+
+                //download the file as held in the inputstream
+                renderBinary( inputStream, file_name + ".fa" );
+			} else {
+				//Get contents
+                List<ExonAlignmentPiece> exon_alignment_pieces = ExonAlignmentPiece.find("byRef_exon_idAndSpecies", ensembl_id, species).fetch();
+                String file_name = String.format("%s_%s_%s", ensembl_id, species, download_type);
+
+                //create temp file
+                File tempFile = File.createTempFile( file_name, ".fa" );
+                
+                BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));
+                
+        	    //Write Contents
+                for (ExonAlignmentPiece element : exon_alignment_pieces)
+                {
+                	bw.write(String.format(">%s_%s\n", element.ref_prot_start, element.ref_prot_stop));
+                    bw.write(String.format("%s\n", element.spec_protein_seq));
+                }
+        	    bw.close();
+                
+                inputStream = new FileInputStream( tempFile );
+
+                //delete temp file
+                tempFile.delete();
+
+                //download the file as held in the inputstream
+                renderBinary( inputStream, file_name + ".fa" );
+			}
         }
         catch( Exception e ){
         	System.out.println(e);
@@ -125,13 +157,15 @@ public class Application extends Controller {
     
     public static String jalviewInputFileGenerator(String ref_protein_id, String species){
     	//filename generator
-    	String jalview_input_f = "IVANA.afa"; 
     	String perl_cmd = "perl";
     	String db_name	= "exolocator_db";
     	String output_path	= "/home/marioot/Eclipse/WebDev/Exolocator/Resource/";
     	String script_path	= "/home/marioot/Eclipse/WebDev/Exolocator/lib/alignment_assembler.pl";
-   		String cmd = String.format("%s %s %s %s %s %s/%s", perl_cmd, script_path, db_name, ref_protein_id, species, output_path, jalview_input_f);
+    	String jalview_input_f = "";
    		try{
+   			File jalview_input_file = File.createTempFile("jalview_", ".afa", new File(output_path));
+   			jalview_input_f = jalview_input_file.getName();
+   			String cmd = String.format("%s %s %s %s %s %s/%s", perl_cmd, script_path, db_name, ref_protein_id, species, output_path, jalview_input_f);
    			System.out.println(cmd);
     		Runtime.getRuntime().exec(cmd);
     	}
@@ -141,14 +175,15 @@ public class Application extends Controller {
     	return String.format("/%s/%s", "Resource", jalview_input_f);
     }
     
-    public static void jalviewInputFileCleanup(){
-    	System.out.println("jalviewInputFileCleanup ušao!");
-    	File f1 = new File("/home/marioot/Eclipse/WebDev/Exolocator/Resource/XYZ.afa");
-    	  boolean success = f1.delete();
+    public static void jalviewInputFileCleanup(String file_path){
+    	String output_path	= "/home/marioot/Eclipse/WebDev/Exolocator/";
+    	System.out.println(output_path + file_path);
+    	File f1 = new File(output_path + file_path);
+    	boolean success = f1.delete();
     	  if (!success){
-    	  System.out.println("Deletion failed.");
+    	  //System.out.println("Deletion failed.");
     	  }else{
-    	  System.out.println("File deleted.");
+    	  //System.out.println("File deleted.");
     	  }
     }
 }
