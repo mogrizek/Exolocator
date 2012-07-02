@@ -11,7 +11,7 @@ sub formatted_sequence ( @);
 
 
 
-($dbh = DBI->connect("DBI:mysql:$dbname", "root", "")) ||
+($dbh = DBI->connect("DBI:mysql:$dbname", "marioot", "tooiram")) ||
     die "Cannot connect to $dbname.\n";
 
 

@@ -2,94 +2,100 @@
 #{set title:'Home' /}
 
 #{set 'description'}
-	<h3>What is this?</h3>	
-	<p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
+	<h3>What is ExoLocator?</h3>
+	<br>	
+         <table>
+<tr> <td> <p>
+ExoLocator is a database 9187608976 of exons from vertebrate genomes deposited in ENSEMBL. It collects exons annotated by the ENSMBL pipeline, as well as by our own extended homology based search.  
+	</p></td> </tr>
 
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
+<tr> <td> <br> </td> </tr>
 
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
+<tr> <td> <p>
+In our approach  we  use hardware accelerated Smith-Waterman algorithm to look for exons that are similar to those found in human proteins. 
+	</p></td> </tr>
+   
+</table>
 
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
-
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
-	</p>
 #{/set}
 
 #{set 'species_search'}
 	</br>
 	<h2>Species Specific Search</h2>
 	</br>
-	#{form @Application.singleSpeciesSearchForm()}
-    <table>
+	#{form @Application.humanHomologSearchForm()}
+         <table>
+		 <tr> <br> </tr>
+		 <tr>
+                 <td>  <p> Enter ENSEMBL identifier of a protein from any vertebrate species to
+		 obtain all exons compiled in the database. 
+		 (UNIPROT and  ENSEMBL databases allow retrieval of the identifier by protein name search.) </p>
+                 </td>               
+
+	         <td><input type="text" name="ref_protein_id" id="ref_protein_id" value="${params.ref_protein_id}"/></td>
+
+	 	</tr>
+
 		<tr>
-			<td><label for="protein_id">Ensembl id: </label></td>
-			<td><input type="text" name="protein_id" id="protein_id" value="${params.protein_id}"/></td>
-		</tr>
+			<td></td>
+			<td><label for="species"> Species: </label>
+			<select name="species" id="species" value="${params.species}"/></td>
+	 	</tr>
+          	<tr>  <td> <br> </td></tr>
 		<tr>
 			<td></td>
 			<td><input type="submit" id="search" value="Search for exons" /></td>
 		</tr>
+
+                 <tr> 
+                    <td> <p>  The exons that ExoLocator is aware of  can be downloaded as individual fasta files, 
+either on nucleotide or on amino acid level, or be viewed in the browser. </p>
+
+		 </td>
+		</tr>
+
+
 	</table>
+
+
+
+
 	#{/form}	
 #{/set}
 
+
 #{set 'human_homolog_search'}
+
 	</br>
-	<h2>Human Protein Putative Homogue Search</h2>
+	<h2>All-species Search</h2>
 	</br>
-	#{form @Application.humanHomologSearchForm()}
-    <table>
-		<tr>
-			<td><label for="ref_protein_id">Ensembl id: </label></td>
-			<td><input type="text" name="ref_protein_id" id="ref_protein_id" value="${params.ref_protein_id}"/></td>
-		</tr>
-		<tr>
-			<td><label for="species">Species: </label></td>
-			<td><select name="species" id="species" value="${params.species}"/></td>
-		</tr>
-		<tr>
+	#{form @Application.singleSpeciesSearchForm()}
+        <table>
+		 <tr> <br> </tr>
+		 <tr>
+                 <td> <p> Enter ENSEMBL identifier of a human  protein  to obtain the most complete protein sequences (we could assemble) 
+        of its tentative orthologues from other species. (UNIPROT and  ENSEMBL databases allow retrieval of the identifier by protein name search.) </p>
+
+
+ 
+		 </td>
+
+			<td><input type="text" name="protein_id" id="protein_id" value="${params.protein_id}"/></td>
+		 </tr>
+		 <tr>
 			<td></td>
 			<td><input type="submit" id="search" value="Search for exons" /></td>
+		 </tr>
+
+	 	 <tr> 
+                    <td>  <p> The result - the alignment of full protein sequences - 
+                       can be downloaded in aligned FASTA format, or viewed in the browser. </p>
+		 </td>
 		</tr>
+
 	</table>
+
+
 	#{/form}	
 
 	<script type="text/javascript">

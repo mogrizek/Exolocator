@@ -2,10 +2,10 @@
 #{set title:'Home' /}
 
 #{set 'ortholog_list_content'}
-<h2>Orthologs</h2>
+<h2>The closest homolog in</h2>
 <div class="ortholog_list">
   #{list items:orthologs, as:'ortholog_item'}
-  		<h4><a href="@{Application.singleSpeciesSearchForm(ortholog_item.protein_id)}">${ortholog_item.species}</a></h4>
+  	<a href="@{Application.singleSpeciesSearchForm(ortholog_item.protein_id)}">${ortholog_item.species}</a>
   #{/list} 
 </div>  
 
@@ -18,7 +18,7 @@
 #{/set}
 
 #{set 'jalview'}
-TODO: AUTOMATIC RESIZING!!!
+
 	</br>
 	<h2>JalView</h2>
 	<div class="jalview">

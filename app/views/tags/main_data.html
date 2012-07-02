@@ -2,70 +2,57 @@
 #{set title:'Home' /}
 
 #{set 'description'}
-	<h3>What is this?</h3>	
+         <br> 
+	<h3>What is Exolocator?</h3>
+ <br><br>	
 	<p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
-
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
-
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
-
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque mauris, posuere eu aliquam vel, volutpat nec quam. 
-	In lobortis ligula ut mauris consectetur nec feugiat nunc vehicula. 
-	Donec semper, urna sit amet feugiat posuere, risus ipsum bibendum sem, non adipiscing nisi risus ut dui. 
-	Suspendisse eleifend faucibus eros, vel volutpat orci blandit vel. Donec id purus orci, ac cursus diam. 
-	Fusce ante enim, mattis in dictum vitae, semper et nunc. Nunc fringilla rhoncus arcu ac ultrices. 
-	Pellentesque ullamcorper tempus tempor.
-
-	Ut aliquet est non dolor tristique lobortis. Cras consequat eleifend neque, vel dictum lacus tristique eget. 
-	Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tincidunt dui eget felis ornare sit amet fringilla erat euismod. 
-	Donec nibh dolor, dapibus vulputate aliquam ultrices, pellentesque et felis. Maecenas id nibh ac massa ultricies euismod. 
-	Aliquam arcu mauris, accumsan in congue non, convallis eget felis. Donec nec felis magna.
+<b>ExoLocator</b> is a database  of <a href="http://en.wikipedia.org/wiki/Exon">exons</a> from vertebrate genomes deposited in
+<a href="http://www.ensembl.org">ENSEMBL</a>. 
+It collects exons annotated by the ENSMBL pipeline, as well as by our own extended search by similarity to known human exon sequences.  
 	</p>
+<br>
+ <p>
+In our approach  we  use <a href="https://github.com/mkorpar/swSharp"><b>SW#</b></a> (pronounced "SW sharp" 
+and <a href="https://github.com/mkorpar/swSharp">  available on github </a>)
+ hardware accelerated Smith-Waterman algorithm  to look for exons that are similar to those found in human proteins. It enables us to do dynamic programming  searching on the stretcehs of genomic seqeunces typically available only to heuristic methods.
+	</p>
+
+<br>
+ <p> <a href="https://github.com/abulovic/SuperExonRetriver2000"><b>SuperExonRetriver2000</b></a>,  
+
+the Python pipeline used to fill our database, is 
+ <a href="https://github.com/abulovic/SuperExonRetriver2000"> also available for inspection and download on github</a>.
+	</p>
+
+
 #{/set}
 
 #{set 'species_search'}
 	</br>
-	<h2>Species Specific Search</h2>
+	<h2>Search for exons from a particular species</h2>
 	</br>
 	#{form @Application.singleSpeciesSearchForm()}
     <table>
-		<tr>
-			<td><label for="protein_id">Ensembl id: </label></td>
-			<td><input type="text" name="protein_id" id="protein_id" value="${params.protein_id}"/></td>
+
+		 <tr> <br> </tr>
+		 <tr>
+                 <td rowspan = "3"  width="60%"> <p> Enter ENSEMBL identifier of a protein from any vertebrate species to
+		 obtain all exons compiled in the database. 
+		 (<a href="http://www.uniprot.org/">UNIPROT</a> and  
+		 <a href="http://www.ensembl.org">ENSEMBL</a> databases allow retrieval 
+                  of the identifier by common name of the protein.) </p>
+
+</td>
+		           <td><label for="protein_id">Species specific ensembl id: </label></td>
+	 	 </tr>
+
+
+
+		<tr>			
+			<td><input type="text" name="protein_id" id="protein_id" value="${params.protein_id}ENSAMEP00000020478"/></td>
 		</tr>
 		<tr>
-			<td></td>
-			<td><input type="submit" id="search" value="Search for exons" /></td>
+			<td><input type="submit" id="search" value="Search" /></td>
 		</tr>
 	</table>
 	#{/form}	
@@ -73,24 +60,56 @@
 
 #{set 'human_homolog_search'}
 	</br>
-	<h2>Human Protein Putative Homogue Search</h2>
+
+
+
+
+
+	<h2>Search for reconstructed protein sequences</h2>
 	</br>
 	#{form @Application.humanHomologSearchForm()}
-    <table>
+        <table>
+		 <tr> <br> </tr>
+		 <tr>
+                 <td rowspan = "4"  width="65%"> <p> Enter ENSEMBL identifier of a human  protein  to obtain the most complete
+                           protein sequences (we could assemble) 
+                           of its tentative orthologues from other species. (<a href="http://www.uniprot.org/">UNIPROT</a> and  
+		 <a href="http://www.ensembl.org">ENSEMBL</a> databases allow retrieval 
+                  of the identifier by common name of the protein.) </p> </td>
+			<td><label for="ref_protein_id">Ensembl id for human reference protein: </label></td>
+	 	 </tr>
+
+
+		 <tr>
+			<td><input type="text" name="ref_protein_id" id="ref_protein_id" 
+                                   value="${params.ref_protein_id}ENSP00000298743"/></td>
+	 	 </tr>
+
 		<tr>
-			<td><label for="ref_protein_id">Ensembl id: </label></td>
-			<td><input type="text" name="ref_protein_id" id="ref_protein_id" value="${params.ref_protein_id}"/></td>
+			<td><label for="species">Species: </label>
+			    <select name="species" id="species" value="${params.species}"/></td>
 		</tr>
-		<tr>
-			<td><label for="species">Species: </label></td>
-			<td><select name="species" id="species" value="${params.species}"/></td>
+
+		 <tr>
+			<td><input type="submit" id="search" value="Search" /></td>
+		 </tr>
+
+		 <tr> <td><br> </td></tr>
+
+	 	 <tr> 
+                    <td>  <p> The result - the alignment of full protein sequences - 
+                       can be downloaded in aligned FASTA format, or viewed in the browser. </p>
+		 </td>
 		</tr>
-		<tr>
-			<td></td>
-			<td><input type="submit" id="search" value="Search for exons" /></td>
-		</tr>
+
 	</table>
+
+
 	#{/form}	
+
+
+
+
 
 	<script type="text/javascript">
 		$(document).ready(function() {

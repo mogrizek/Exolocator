@@ -159,14 +159,14 @@ public class Application extends Controller {
     	//filename generator
     	String perl_cmd = "perl";
     	String db_name	= "exolocator_db";
-    	String output_path	= "/home/marioot/Eclipse/WebDev/Exolocator/Resource/";
-    	String script_path	= "/home/marioot/Eclipse/WebDev/Exolocator/lib/alignment_assembler.pl";
+    	String output_path	= "/home/marioot/www/Exolocator/Resource/";
+    	String script_path	= "/home/marioot/www/Exolocator/lib/alignment_assembler.pl";
     	String jalview_input_f = "";
    		try{
    			File jalview_input_file = File.createTempFile("jalview_", ".afa", new File(output_path));
    			jalview_input_f = jalview_input_file.getName();
    			String cmd = String.format("%s %s %s %s %s %s/%s", perl_cmd, script_path, db_name, ref_protein_id, species, output_path, jalview_input_f);
-   			System.out.println(cmd);
+   			//System.out.println(cmd);
     		Runtime.getRuntime().exec(cmd);
     	}
     	catch( Exception e ){
@@ -176,11 +176,12 @@ public class Application extends Controller {
     }
     
     public static void jalviewInputFileCleanup(String file_path){
-    	String output_path	= "/home/marioot/Eclipse/WebDev/Exolocator/";
-    	System.out.println(output_path + file_path);
+    	String output_path	= "/home/marioot/www/Exolocator/";
+    	//System.out.println(output_path + file_path);
     	File f1 = new File(output_path + file_path);
-    	boolean success = f1.delete();
-    	  if (!success){
+    	//boolean success = f1.delete();
+    	boolean success = true;
+	  if (!success){
     	  //System.out.println("Deletion failed.");
     	  }else{
     	  //System.out.println("File deleted.");
